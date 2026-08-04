@@ -1,0 +1,112 @@
+{{- $calendar := hugo.Data.github_contributions -}}
+{{- $total := 0 -}}
+{{- $username := "jcone211" -}}
+{{- $generatedAt := "首次构建后生成" -}}
+{{- with $calendar -}}
+  {{- with .totalContributions }}{{ $total = . }}{{ end -}}
+  {{- with .username }}{{ $username = . }}{{ end -}}
+  {{- with .generatedAt }}{{ $generatedAt = . }}{{ end -}}
+{{- end -}}
+
+<div class="portfolio-home">
+  <section class="portfolio-hero" aria-labelledby="portfolio-title">
+    <p class="portfolio-eyebrow">JAVA BACKEND · AI APPLICATIONS</p>
+    <h1 id="portfolio-title">把后端工程能力，<br>转化为可验证的产品与服务。</h1>
+    <p class="portfolio-lead">聚焦 Java 后端工程、AI Agent、工作流和面向真实使用场景的交付。这里记录项目实践，也沉淀每日市场宽度分析。</p>
+    <div class="portfolio-actions">
+      <a class="portfolio-button portfolio-button-primary" href="#projects">查看项目</a>
+      <a class="portfolio-button portfolio-button-secondary" href="https://github.com/{{ $username }}" target="_blank" rel="noreferrer">访问 GitHub <span aria-hidden="true">↗</span></a>
+    </div>
+    <dl class="portfolio-stats" aria-label="个人能力概览">
+      <div><dt>Java</dt><dd>后端工程实践</dd></div>
+      <div><dt>AI</dt><dd>Agent 与工作流实践</dd></div>
+      <div><dt>Build</dt><dd>从想法到可交付服务</dd></div>
+    </dl>
+  </section>
+
+  <section id="github" class="portfolio-section portfolio-calendar-section" aria-labelledby="github-title">
+    <div class="portfolio-section-heading">
+      <div>
+        <p class="portfolio-kicker">GITHUB ACTIVITY</p>
+        <h2 id="github-title">持续输出，而非一次性展示</h2>
+      </div>
+      <a href="https://github.com/{{ $username }}" target="_blank" rel="noreferrer">GitHub Profile ↗</a>
+    </div>
+    <div class="portfolio-calendar-card">
+      <div class="portfolio-calendar-summary">
+        <strong>{{ $total }}</strong><span> contributions in the last year</span>
+        <small>构建数据更新时间：{{ $generatedAt }}</small>
+      </div>
+      {{- with $calendar.weeks }}
+      <div class="contribution-calendar" role="img" aria-label="{{ $username }} 过去一年的 GitHub 贡献日历">
+        <div class="contribution-weekdays" aria-hidden="true"><span>Mon</span><span>Wed</span><span>Fri</span></div>
+        <div class="contribution-weeks">
+          {{- range . }}
+          <div class="contribution-week">
+            {{- range .days }}
+            <span class="contribution-day" style="--contribution-color: {{ .color | default "#e5e7eb" }}" title="{{ .date }}：{{ .count }} contributions"></span>
+            {{- end }}
+          </div>
+          {{- end }}
+        </div>
+      </div>
+      <div class="contribution-legend" aria-label="贡献活跃度说明"><span>Less</span><i style="--contribution-color:#ebedf0"></i><i style="--contribution-color:#9be9a8"></i><i style="--contribution-color:#40c463"></i><i style="--contribution-color:#30a14e"></i><i style="--contribution-color:#216e39"></i><span>More</span></div>
+      {{- else }}
+      <p class="portfolio-empty-state">贡献日历会在设置 GitHub Token 后的首次构建中生成。</p>
+      {{- end }}
+    </div>
+  </section>
+
+  <section id="projects" class="portfolio-section" aria-labelledby="projects-title">
+    <div class="portfolio-section-heading">
+      <div>
+        <p class="portfolio-kicker">SELECTED WORK</p>
+        <h2 id="projects-title">用可见成果说明工程能力</h2>
+      </div>
+      <a href="{{ "projects/" | relURL }}">全部项目 →</a>
+    </div>
+    <div class="portfolio-project-grid">
+      <article class="portfolio-project-card portfolio-project-primary">
+        <p class="portfolio-project-number">01 / FEATURED</p>
+        <h3>同花顺问财辅助工具</h3>
+        <p>围绕自选标的、行情刷新与价格提醒设计的工具。通过功能界面、实现说明和代码仓库，展示从需求拆解到可运行成果的过程。</p>
+        <ul class="portfolio-tags"><li>Java</li><li>桌面工具</li><li>市场数据</li></ul>
+        <div class="portfolio-card-actions"><a href="{{ "projects/wencai-monitor/" | relURL }}">查看项目说明 →</a><a href="https://github.com/jcone211/web_auto_refresh" target="_blank" rel="noreferrer">代码仓库 ↗</a></div>
+      </article>
+      <article class="portfolio-project-card">
+        <p class="portfolio-project-number">02 / IN PROGRESS</p>
+        <h3>市场宽度分析 Agent</h3>
+        <p>基于 Cherry Studio 部署的分析 Agent，在本地生成每日市场宽度 Markdown。项目页聚焦方法、数据处理和 Agent 设计，不开放在线登录体验。</p>
+        <ul class="portfolio-tags"><li>AI Agent</li><li>Cherry Studio</li><li>Markdown</li></ul>
+        <div class="portfolio-card-actions"><a href="{{ "projects/market-breadth-agent/" | relURL }}">查看技术说明 →</a></div>
+      </article>
+    </div>
+  </section>
+
+  <section id="insights" class="portfolio-section portfolio-insights" aria-labelledby="insights-title">
+    <div class="portfolio-section-heading">
+      <div>
+        <p class="portfolio-kicker">MARKET NOTES</p>
+        <h2 id="insights-title">每日市场宽度分析</h2>
+      </div>
+      <a href="{{ "market-breadth/" | relURL }}">查看全部文章 →</a>
+    </div>
+    <p class="portfolio-section-intro">从本地 Agent 每日生成的 Markdown 中手动挑选、校对和发布。这里是研究过程的留痕，不构成投资建议。</p>
+    {{- $notes := where site.RegularPages "Section" "market-breadth" -}}
+    {{- if gt (len $notes) 0 }}
+      <div class="portfolio-note-list">
+      {{- range first 3 (sort $notes "Date" "desc") }}
+        <a class="portfolio-note" href="{{ .RelPermalink }}"><time>{{ .Date | time.Format "2006-01-02" }}</time><span>{{ .Title }}</span><span aria-hidden="true">→</span></a>
+      {{- end }}
+      </div>
+    {{- else }}
+      <p class="portfolio-empty-state">第一篇市场宽度分析将在人工校对后发布。</p>
+    {{- end }}
+  </section>
+
+  <section class="portfolio-section portfolio-roadmap" aria-labelledby="roadmap-title">
+    <p class="portfolio-kicker">WHAT'S NEXT</p>
+    <h2 id="roadmap-title">持续构建，不把未完成的探索伪装成成品。</h2>
+    <p>后续会逐步补充 Dify 对话流、产品文案生成等 AI 应用实验；只有完成可验证的交付后，才会将其作为可访问服务展示。</p>
+  </section>
+</div>

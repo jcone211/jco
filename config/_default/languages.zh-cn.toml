@@ -1,0 +1,20 @@
+disabled = false
+locale = "zh-CN"
+label = "中文"
+weight = 1
+title = "jcone211 | Java Backend & AI Applications"
+
+[params]
+  displayName = "中文"
+  isoCode = "zh-CN"
+  dateFormat = "2006-01-02"
+  description = "Java 后端与 AI 应用开发作品集：项目、工程实践与市场宽度分析。"
+  copyright = "© 2026 jcone211"
+
+[params.author]
+  name = "jcone211"
+  headline = "Java Backend · AI Applications"
+  bio = "聚焦 Java 后端工程、AI Agent、工作流与可交付的应用能力。"
+  links = [
+    { github = "https://github.com/jcone211" }
+  ]

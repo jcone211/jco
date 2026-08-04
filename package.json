@@ -1,0 +1,9 @@
+{
+  "name": "jcone211-portfolio",
+  "private": true,
+  "scripts": {
+    "fetch:github": "node scripts/fetch-github-contributions.mjs",
+    "build": "npm run fetch:github && hugo --minify",
+    "preview": "hugo server --buildDrafts"
+  }
+}

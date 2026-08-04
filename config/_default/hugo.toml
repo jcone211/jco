@@ -1,0 +1,18 @@
+baseURL = "https://jcone211.github.io/"
+locale = "zh-CN"
+defaultContentLanguage = "zh-cn"
+title = "jcone211 | Java Backend & AI Applications"
+theme = "blowfish"
+timeZone = "Asia/Shanghai"
+enableRobotsTXT = true
+summaryLength = 36
+
+[pagination]
+  pagerSize = 8
+
+[taxonomies]
+  tag = "tags"
+  category = "categories"
+
+[outputs]
+  home = ["HTML", "RSS", "JSON"]

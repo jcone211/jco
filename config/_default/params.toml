@@ -1,0 +1,40 @@
+colorScheme = "ocean"
+defaultAppearance = "light"
+autoSwitchAppearance = true
+enableA11y = false
+enableSearch = true
+enableCodeCopy = true
+enableStructuredBreadcrumbs = true
+
+[header]
+  layout = "fixed-fill-blur"
+
+[footer]
+  showMenu = true
+  showCopyright = true
+  showThemeAttribution = false
+  showAppearanceSwitcher = true
+  showScrollToTop = true
+
+[homepage]
+  layout = "custom"
+  showRecent = false
+
+[article]
+  showDate = true
+  showAuthor = true
+  showBreadcrumbs = true
+  showReadingTime = true
+  showTableOfContents = true
+  showEdit = false
+  showTaxonomies = true
+
+[list]
+  showBreadcrumbs = true
+  showSummary = true
+  showTableOfContents = false
+  groupByYear = false
+  cardView = true
+
+[sitemap]
+  excludedKinds = ["taxonomy", "term"]
