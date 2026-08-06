@@ -9,10 +9,18 @@
 {{- end -}}
 
 <div class="portfolio-home">
+  <section class="portfolio-arrival" aria-label="首页引导">
+    <div class="portfolio-arrival-inner">
+      <span class="portfolio-arrival-label">A NOTE FROM THE WORKBENCH</span>
+      <p>有些东西已经能用，有些想法还在路上，欢迎来看看 ✦</p>
+    </div>
+  </section>
   <section class="portfolio-hero" aria-labelledby="portfolio-title">
+    <p class="portfolio-welcome">Hi，我是 cj 👋 欢迎来到我的工作台</p>
+    <p class="portfolio-greeting">这里不展示完美答案，只分享问题如何被一步步做成</p>
     <p class="portfolio-eyebrow">JAVA BACKEND · AI APPLICATIONS</p>
-    <h1 id="portfolio-title">把后端工程能力，<br>转化为可验证的产品与服务。</h1>
-    <p class="portfolio-lead">聚焦 Java 后端工程、AI Agent、工作流和面向真实使用场景的交付。这里记录项目实践，也沉淀每日市场宽度分析。</p>
+    <h1 id="portfolio-title">把复杂的问题，做成可靠的系统</h1>
+    <p class="portfolio-lead">我用 Java 做后端，用 AI 试探新的交互方式，也把每一次实验尽量变成能运行、能复盘的东西。</p>
     <div class="portfolio-actions">
       <a class="portfolio-button portfolio-button-primary" href="#projects">查看项目</a>
       <a class="portfolio-button portfolio-button-secondary" href="https://github.com/{{ $username }}" target="_blank" rel="noreferrer">访问 GitHub <span aria-hidden="true">↗</span></a>
@@ -69,8 +77,8 @@
       <article class="portfolio-project-card portfolio-project-primary">
         <p class="portfolio-project-number">01 / FEATURED</p>
         <h3>同花顺问财辅助工具</h3>
-        <p>围绕自选标的、行情刷新与价格提醒设计的工具。通过功能界面、实现说明和代码仓库，展示从需求拆解到可运行成果的过程。</p>
-        <ul class="portfolio-tags"><li>Java</li><li>桌面工具</li><li>市场数据</li></ul>
+        <p>一款围绕自选标的、行情刷新与价格提醒设计的 Chrome 浏览器插件。通过功能界面、实现说明和代码仓库，展示从需求拆解到可运行成果的过程。</p>
+        <ul class="portfolio-tags"><li>Chrome 插件</li><li>浏览器扩展</li><li>市场数据</li></ul>
         <div class="portfolio-card-actions"><a href="{{ "projects/wencai-monitor/" | relURL }}">查看项目说明 →</a><a href="https://github.com/jcone211/web_auto_refresh" target="_blank" rel="noreferrer">代码仓库 ↗</a></div>
       </article>
       <article class="portfolio-project-card">
@@ -106,7 +114,7 @@
 
   <section class="portfolio-section portfolio-roadmap" aria-labelledby="roadmap-title">
     <p class="portfolio-kicker">WHAT'S NEXT</p>
-    <h2 id="roadmap-title">持续构建，不把未完成的探索伪装成成品。</h2>
-    <p>后续会逐步补充 Dify 对话流、产品文案生成等 AI 应用实验；只有完成可验证的交付后，才会将其作为可访问服务展示。</p>
+    <h2 id="roadmap-title">有些想法，正在长成产品</h2>
+    <p>Dify 对话流、产品文案生成等 AI 应用仍在迭代。先把问题想清楚，再把它们做成值得使用的东西。</p>
   </section>
 </div>

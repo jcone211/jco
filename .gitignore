@@ -16,6 +16,7 @@ credentials.json
 public/
 resources/
 .tools/
+.tmp-verify/
 # Hugo runtime and generated artifacts
 .hugo_build.lock
 hugo_stats.json
