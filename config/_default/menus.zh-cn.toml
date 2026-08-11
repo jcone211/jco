@@ -9,6 +9,11 @@
   weight = 20
 
 [[main]]
+  name = "AI 应用"
+  pageRef = "agents"
+  weight = 25
+
+[[main]]
   name = "市场宽度分析"
   pageRef = "market-breadth"
   weight = 30
