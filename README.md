@@ -55,7 +55,11 @@ hugo server --buildDrafts --port 4174
 
 ### 3. 发布
 
-确认无误后，将 front matter 中的 `draft: true` 改为 `false`（或直接删除该行）。发布动作必须由人工完成。
+确认无误后，将 front matter 中的 `draft: true` 改为 `false`（或直接删除该行）。发布动作必须由人工完成。然后编译出/public，直接上传部署
+
+```powershell
+hugo --minify --cleanDestinationDir
+```
 
 ### Front matter 约定
 

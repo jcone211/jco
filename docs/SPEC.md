@@ -59,7 +59,7 @@
 
 `config/_default/hugo.toml` 定义：
 
-- `baseURL = "https://jcone211.github.io/"`；发布到其他域名时必须同步修改。
+- `baseURL = "https://snowynight.site/"`；发布到其他域名时必须同步修改。
 - 默认语言为 `zh-cn`，地区为 `zh-CN`。
 - 时区为 `Asia/Shanghai`。
 - 使用 `blowfish` 主题。

@@ -1,7 +1,7 @@
-baseURL = "https://jcone211.github.io/"
+baseURL = "https://snowynight.site/"
 locale = "zh-CN"
 defaultContentLanguage = "zh-cn"
-title = "jcone211 | Java Backend & AI Applications"
+title = "shadow 的编程网"
 theme = "blowfish"
 timeZone = "Asia/Shanghai"
 enableRobotsTXT = true

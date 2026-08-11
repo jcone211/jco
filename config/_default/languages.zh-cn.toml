@@ -2,14 +2,14 @@ disabled = false
 locale = "zh-CN"
 label = "中文"
 weight = 1
-title = "jcone211 | Java Backend & AI Applications"
+title = "shadow 的编程网"
 
 [params]
   displayName = "中文"
   isoCode = "zh-CN"
   dateFormat = "2006-01-02"
   description = "Java 后端与 AI 应用开发作品集：项目、工程实践与市场宽度分析。"
-  copyright = "© 2026 jcone211"
+  copyright = "© 2026 jcone211 | [鄂ICP备2026041171号-1](https://beian.miit.gov.cn/)"
 
 [params.author]
   name = "jcone211"
