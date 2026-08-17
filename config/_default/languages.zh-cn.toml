@@ -9,7 +9,7 @@ title = "shadow 的编程网"
   isoCode = "zh-CN"
   dateFormat = "2006-01-02"
   description = "Java 后端与 AI 应用开发作品集：项目、工程实践与市场宽度分析。"
-  copyright = "© 2026 jcone211 | [鄂ICP备2026041171号-1](https://beian.miit.gov.cn/)"
+  copyright = '© 2026 jcone211 | <img class="nozoom" src="/images/projects/logo01.6189a29f.png" alt="鄂公网安备" style="display:inline-block;height:1em;width:auto;vertical-align:-0.1em;margin-right:0.25em;">[鄂公网安备42010302002957号](https://beian.mps.gov.cn/#/query/webSearch?code=42010302002957) | [鄂ICP备2026041171号-1](https://beian.miit.gov.cn/)'
 
 [params.author]
   name = "jcone211"

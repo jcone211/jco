@@ -3,7 +3,7 @@
   "private": true,
   "scripts": {
     "fetch:github": "node scripts/fetch-github-contributions.mjs",
-    "build": "npm run fetch:github && hugo --minify",
+    "build": "npm run fetch:github && hugo --minify --cleanDestinationDir",
     "preview": "hugo server --buildDrafts"
   }
 }

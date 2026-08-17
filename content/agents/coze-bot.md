@@ -3,7 +3,7 @@ title: "Coze Agent（规划中）"
 date: 2026-08-11
 description: "基于 Coze 平台规划的 Agent 应用，尚未部署上线。"
 summary: "Coze 平台的 Agent 应用规划，部署上线后补充体验入口。"
-tags: ["Coze", "AI Agent"]
+tags: ["Coze", "对话流"]
 ---
 
 ## 状态
