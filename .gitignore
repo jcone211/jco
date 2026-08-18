@@ -20,6 +20,7 @@ resources/
 # Hugo runtime and generated artifacts
 .hugo_build.lock
 hugo_stats.json
+*.tar.gz
 
 # JavaScript dependencies and diagnostic logs
 node_modules/
