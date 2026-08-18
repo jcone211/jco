@@ -38,3 +38,7 @@ enableStructuredBreadcrumbs = true
 
 [sitemap]
   excludedKinds = ["taxonomy", "term"]
+
+[dify]
+#  baseURL = "http://localhost:8091"
+  baseURL ="https://dify.snowynight.site/"

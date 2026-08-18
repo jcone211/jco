@@ -21,16 +21,11 @@ tags: ["Dify", "工作流", "数据分析"]
 
 ## 在线体验
 
-> ⚠️ 该工作流目前仅在本机本地部署环境（`localhost`）可用。在本机开发环境中打开本站时 iframe 正常加载；站点发布到公网后，访客访问该地址不会生效，届时需替换为受控代理地址或暂时隐藏体验入口。
+{{< agent-chat-frame path="workflow/zovP7jljPRS5ZRdZ" allow="microphone; camera" >}}
 
-<div class="agent-chat-frame">
-  <iframe
-    src="http://localhost:8091/workflow/zovP7jljPRS5ZRdZ"
-    style="width: 100%; height: 100%; min-height: 700px"
-    frameborder="0"
-    allow="microphone; camera">
-  </iframe>
-</div>
+## 快速上手
+
+下载示例数据：[客服对话数据.xlsx](/files/客服对话数据.xlsx)。在下方面板中上传该文件后，即可直接体验分析流程。
 
 ## 当前能力
 
@@ -43,9 +38,9 @@ tags: ["Dify", "工作流", "数据分析"]
 ## 工程说明
 
 - 基于 Dify 可视化工作流编排数据提取与分析流程；
-- 本地部署，保留对数据与应用的控制权；
+- 自托管部署，保留对数据与应用的控制权；
 - 通过 iframe 内嵌到作品集，提供可试用的工作流体验。
 
 ## 后续方向
 
-在能稳定、可验证地对外提供访问之前，该体验入口保持本地 / 内网可用。公网访问需要通过反向代理，并做好鉴权与限流。
+体验入口已部署到公网可直接访问；后续将关注访问稳定性，并视需要补充鉴权与限流。
