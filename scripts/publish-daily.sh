@@ -11,6 +11,10 @@ set -uo pipefail
 JCO="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 cd "$JCO"
 
+# 加载用户环境变量, 确保无论登录/非登录 shell 都能拿到 GITHUB_TOKEN (供 fetch:github 用)。
+# token 仅存于 ~/.bash_profile 与 Windows 用户环境变量, 绝不写入仓库任何文件。
+[ -f "$HOME/.bash_profile" ] && . "$HOME/.bash_profile" 2>/dev/null || true
+
 echo "[daily] 1/5 转换最新日报 -> Hugo 文章"
 python scripts/publish_breadth.py || { echo "ERROR: 日报转换失败" >&2; exit 1; }
 
