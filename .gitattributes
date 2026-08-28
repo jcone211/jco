@@ -1,0 +1,7 @@
+# 统一换行策略：仓库内以 LF 存储，检出为 LF。
+# 关键：deploy-web.sh / publish-daily.sh / *.py 在 Git Bash 下运行，
+# 若被 core.autocrlf=true 转成 CRLF，bash 会因行尾 \r 报错导致钩子部署失败。
+* text=auto eol=lf
+*.sh  text eol=lf
+*.py  text eol=lf
+*.mjs text eol=lf
