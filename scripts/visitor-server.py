@@ -12,9 +12,11 @@ import os
 import socket
 import sys
 import time
-from datetime import datetime
+from datetime import datetime, timezone, timedelta
 from http.server import HTTPServer, BaseHTTPRequestHandler
 from pathlib import Path
+
+CST = timezone(timedelta(hours=8), "Asia/Shanghai")
 
 LOG_FILE = "visitors.jsonl"
 HTML_TEMPLATE = """\
@@ -107,7 +109,7 @@ class VisitorHandler(BaseHTTPRequestHandler):
         except json.JSONDecodeError:
             data = {}
         record = {
-            "time": data.get("time", datetime.now().isoformat()),
+            "time": data.get("time", datetime.now(CST).isoformat()),
             "ip": self.get_client_ip(),
             "page": data.get("page", ""),
             "ref": data.get("ref", ""),
@@ -127,7 +129,7 @@ class VisitorHandler(BaseHTTPRequestHandler):
         except FileNotFoundError:
             lines = []
         total = len(lines)
-        today = datetime.now().strftime("%Y-%m-%d")
+        today = datetime.now(CST).strftime("%Y-%m-%d")
         today_ips = set()
         today_count = 0
         all_days = {}
