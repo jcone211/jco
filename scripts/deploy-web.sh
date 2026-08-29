@@ -65,5 +65,23 @@ ls -t public-*.tar.gz 2>/dev/null | tail -n +2 | xargs -r rm -f
 echo "SWAP OK snowynight.site (旧版备份为 snowynight.site.bak)"
 REMOTE
 
+# --- 访客统计服务器部署 ---
+VISITOR_SCRIPT="$JCO/scripts/visitor-server.py"
+if [ -f "$VISITOR_SCRIPT" ]; then
+  echo "[deploy] 上传访客统计服务器脚本"
+  scp -i "$PEM" -o StrictHostKeyChecking=accept-new -o ConnectTimeout=15 \
+    "$VISITOR_SCRIPT" "$HOST:$REMOTE_HTML/visitor-server.py" || true
+  ssh -i "$PEM" -o StrictHostKeyChecking=accept-new -o ConnectTimeout=15 \
+    "$HOST" 'bash -s' <<VISITOR || true
+mkdir -p "$REMOTE_HTML/data"
+chmod +x "$REMOTE_HTML/visitor-server.py"
+PID=\$(pgrep -f "visitor-server.py" 2>/dev/null || true)
+if [ -n "\$PID" ]; then kill "\$PID" 2>/dev/null || true; fi
+nohup python3 "$REMOTE_HTML/visitor-server.py" --port 3001 --log-dir "$REMOTE_HTML/data" \
+  > "$REMOTE_HTML/data/server.log" 2>&1 &
+echo "[deploy] 访客统计服务器已重启 (PID: \$!)"
+VISITOR
+fi
+
 rm -f "$LOCAL_TAR"
 echo "DEPLOY OK $TARNAME"
