@@ -77,7 +77,7 @@ mkdir -p "$REMOTE_HTML/data"
 chmod +x "$REMOTE_HTML/visitor-server.py"
 PID=\$(pgrep -f "visitor-server.py" 2>/dev/null || true)
 if [ -n "\$PID" ]; then kill "\$PID" 2>/dev/null || true; fi
-nohup python3 "$REMOTE_HTML/visitor-server.py" --port 3001 --log-dir "$REMOTE_HTML/data" \
+nohup python3 "$REMOTE_HTML/visitor-server.py" --port 3001 --log-dir "$REMOTE_HTML/data" --bind 0.0.0.0 \
   > "$REMOTE_HTML/data/server.log" 2>&1 &
 echo "[deploy] 访客统计服务器已重启 (PID: \$!)"
 VISITOR
