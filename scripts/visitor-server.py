@@ -27,6 +27,10 @@ HTML_TEMPLATE = """\
 body {{ font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif; background:#f5f5f5; color:#222; padding:20px; }}
 h1 {{ font-size:18px; margin-bottom:16px; color:#333; }}
 .stats {{ font-size:13px; color:#666; margin-bottom:12px; }}
+.summary {{ display:flex; gap:16px; margin-bottom:16px; flex-wrap:wrap; }}
+.summary-card {{ background:#fff; border-radius:6px; padding:14px 20px; box-shadow:0 1px 3px rgba(0,0,0,.08); flex:1; min-width:120px; }}
+.summary-card strong {{ display:block; font-size:24px; color:#2563eb; }}
+.summary-card span {{ font-size:12px; color:#888; }}
 table {{ width:100%; border-collapse:collapse; background:#fff; box-shadow:0 1px 3px rgba(0,0,0,.08); font-size:12px; }}
 th,td {{ padding:8px 10px; text-align:left; border-bottom:1px solid #eee; white-space:nowrap; }}
 th {{ background:#fafafa; font-weight:600; color:#555; position:sticky; top:0; }}
@@ -41,7 +45,13 @@ td:first-child {{ font-family:"SF Mono",Consolas,monospace; }}
 </head>
 <body>
 <h1>访客统计</h1>
-<div class="stats">共 {total} 次访问 &middot; 每页 {per_page} 条 &middot; 第 {page}/{total_pages} 页</div>
+<div class="summary">
+<div class="summary-card"><strong>{total}</strong><span>总访问次数</span></div>
+<div class="summary-card"><strong>{today_count}</strong><span>今日访问</span></div>
+<div class="summary-card"><strong>{today_unique}</strong><span>今日独立 IP</span></div>
+</div>
+<div class="stats">每页 {per_page} 条 &middot; 第 {page}/{total_pages} 页</div>
+<div class="summary">{daily_rows}</div>
 <table>
 <thead><tr><th>时间</th><th>IP</th><th>页面</th><th>来源</th><th>UA</th></tr></thead>
 <tbody>
@@ -116,8 +126,27 @@ class VisitorHandler(BaseHTTPRequestHandler):
                 lines = [line.strip() for line in f if line.strip()]
         except FileNotFoundError:
             lines = []
-        lines.reverse()
         total = len(lines)
+        today = datetime.now().strftime("%Y-%m-%d")
+        today_ips = set()
+        today_count = 0
+        all_days = {}
+        for line in lines:
+            try:
+                r = json.loads(line)
+                d = r.get("time", "")[:10]
+                ip = r.get("ip", "")
+                all_days.setdefault(d, {"visits": 0, "ips": set()})
+                all_days[d]["visits"] += 1
+                all_days[d]["ips"].add(ip)
+                if d == today:
+                    today_count += 1
+                    today_ips.add(ip)
+            except json.JSONDecodeError:
+                continue
+        today_unique = len(today_ips)
+
+        lines.reverse()
         per_page = max(1, min(q["per_page"], 200))
         total_pages = max(1, (total + per_page - 1) // per_page)
         page = max(1, min(q["page"], total_pages))
@@ -153,8 +182,14 @@ class VisitorHandler(BaseHTTPRequestHandler):
             if page < total_pages:
                 links += pagelink(page + 1, "下一页 →")
 
+        daily_rows = ""
+        for d in sorted(all_days, reverse=True)[:30]:
+            v = all_days[d]
+            daily_rows += f'<div class="summary-card"><strong>{v["visits"]}</strong><span>{d} · 独立IP {len(v["ips"])}</span></div>'
+
         html = HTML_TEMPLATE.format(
-            total=total, per_page=per_page, page=page, total_pages=total_pages,
+            total=total, today_count=today_count, today_unique=today_unique,
+            daily_rows=daily_rows, per_page=per_page, page=page, total_pages=total_pages,
             rows=rows, pagination_links=links,
         )
         self.send_response(200)
