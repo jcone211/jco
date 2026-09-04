@@ -6,7 +6,7 @@
 
 - Java 后端与 AI 应用开发能力概览；
 - GitHub Profile Contribution Calendar（构建时更新）；
-- 同花顺问财辅助工具与市场宽度分析 Agent 的项目说明；
+- flit stk 量化盯盘工具与市场宽度分析 Agent 的项目说明；
 - 从本地 Markdown 人工挑选发布的市场宽度分析文章。
 
 ## 本地开发

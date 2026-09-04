@@ -19,6 +19,31 @@
   weight = 30
 
 [[main]]
+  name = "flit_stk架构图"
+  identifier = "arch-diagrams"
+  weight = 32
+  [main.params]
+    target = "_blank"
+
+[[main]]
+  name = "📊 项目总览"
+  parent = "arch-diagrams"
+  url = "/files/flit_stk-architecture.html"
+  weight = 1
+  [main.params]
+    target = "_blank"
+    rel = "noopener noreferrer"
+
+[[main]]
+  name = "🔒 安全执行框架"
+  parent = "arch-diagrams"
+  url = "/files/flit-harness.html"
+  weight = 2
+  [main.params]
+    target = "_blank"
+    rel = "noopener noreferrer"
+
+[[main]]
   name = "GitHub"
   url = "https://github.com/jcone211"
   weight = 40

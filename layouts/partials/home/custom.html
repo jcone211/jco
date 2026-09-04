@@ -3,9 +3,9 @@
 {{- $username := "jcone211" -}}
 {{- $generatedAt := "首次构建后生成" -}}
 {{- with $calendar -}}
-  {{- with .totalContributions }}{{ $total = . }}{{ end -}}
-  {{- with .username }}{{ $username = . }}{{ end -}}
-  {{- with .generatedAt }}{{ $generatedAt = . }}{{ end -}}
+{{- with .totalContributions }}{{ $total = . }}{{ end -}}
+{{- with .username }}{{ $username = . }}{{ end -}}
+{{- with .generatedAt }}{{ $generatedAt = . }}{{ end -}}
 {{- end -}}
 
 <div class="portfolio-home">
@@ -23,12 +23,22 @@
     <p class="portfolio-lead">我用 Java 做后端，用 AI 试探新的交互方式，也把每一次实验尽量变成能运行、能复盘的东西。</p>
     <div class="portfolio-actions">
       <a class="portfolio-button portfolio-button-primary" href="#projects">查看项目</a>
-      <a class="portfolio-button portfolio-button-secondary" href="https://github.com/{{ $username }}" target="_blank" rel="noreferrer">访问 GitHub <span aria-hidden="true">↗</span></a>
+      <a class="portfolio-button portfolio-button-secondary" href="https://github.com/{{ $username }}" target="_blank"
+        rel="noreferrer">访问 GitHub <span aria-hidden="true">↗</span></a>
     </div>
     <dl class="portfolio-stats" aria-label="个人能力概览">
-      <div><dt>Java</dt><dd>后端工程实践</dd></div>
-      <div><dt>AI</dt><dd>Agent 与工作流实践</dd></div>
-      <div><dt>Build</dt><dd>从想法到可交付服务</dd></div>
+      <div>
+        <dt>Java 全栈</dt>
+        <dd>前后端工程实践</dd>
+      </div>
+      <div>
+        <dt>AI</dt>
+        <dd>Agent 与工作流实践</dd>
+      </div>
+      <div>
+        <dt>Build</dt>
+        <dd>从想法到可交付服务</dd>
+      </div>
     </dl>
   </section>
 
@@ -52,13 +62,17 @@
           {{- range . }}
           <div class="contribution-week">
             {{- range .days }}
-            <span class="contribution-day" style="--contribution-color: {{ .color | default "#e5e7eb" }}" title="{{ .date }}：{{ .count }} contributions"></span>
+            <span class="contribution-day" style="--contribution-color: {{ .color | default "#e5e7eb" }}"
+              title="{{ .date }}：{{ .count }} contributions"></span>
             {{- end }}
           </div>
           {{- end }}
         </div>
       </div>
-      <div class="contribution-legend" aria-label="贡献活跃度说明"><span>Less</span><i style="--contribution-color:#ebedf0"></i><i style="--contribution-color:#9be9a8"></i><i style="--contribution-color:#40c463"></i><i style="--contribution-color:#30a14e"></i><i style="--contribution-color:#216e39"></i><span>More</span></div>
+      <div class="contribution-legend" aria-label="贡献活跃度说明"><span>Less</span><i
+          style="--contribution-color:#ebedf0"></i><i style="--contribution-color:#9be9a8"></i><i
+          style="--contribution-color:#40c463"></i><i style="--contribution-color:#30a14e"></i><i
+          style="--contribution-color:#216e39"></i><span>More</span></div>
       {{- else }}
       <p class="portfolio-empty-state">贡献日历会在设置 GitHub Token 后的首次构建中生成。</p>
       {{- end }}
@@ -76,17 +90,28 @@
     <div class="portfolio-project-grid">
       <article class="portfolio-project-card portfolio-project-primary">
         <p class="portfolio-project-number">01 / FEATURED</p>
-        <h3>同花顺问财辅助工具</h3>
-        <p>一款围绕自选标的、行情刷新与价格提醒设计的 Chrome 浏览器插件。通过功能界面、实现说明和代码仓库，展示从需求拆解到可运行成果的过程。</p>
-        <ul class="portfolio-tags"><li>Chrome 插件</li><li>浏览器扩展</li><li>市场数据</li></ul>
-        <div class="portfolio-card-actions"><a href="{{ "projects/wencai-monitor/" | relURL }}">查看项目说明 →</a><a href="https://github.com/jcone211/web_auto_refresh" target="_blank" rel="noreferrer">代码仓库 ↗</a></div>
+        <h3>flit stk — 量化盯盘</h3>
+        <p>受 DeepSeek Harness 架构启发的浏览器端量化盯盘工具，集成 AI Agent、多渠道实时行情与多条件提醒。Chrome 扩展（Manifest V3），装好即用零配置。</p>
+        <ul class="portfolio-tags">
+          <li>Chrome 插件</li>
+          <li>量化盯盘</li>
+          <li>AI Agent</li>
+          <li>市场数据</li>
+        </ul>
+        <div class="portfolio-card-actions"><a href="{{ "projects/flit-stk-monitor/" | relURL }}">查看项目说明 →</a><a
+            href="https://github.com/jcone211/flit_stk" target="_blank" rel="noreferrer">代码仓库 ↗</a></div>
       </article>
       <article class="portfolio-project-card">
         <p class="portfolio-project-number">02 / IN PROGRESS</p>
         <h3>市场宽度分析 Agent</h3>
         <p>基于 Cherry Studio 部署的分析 Agent，在本地生成每日市场宽度 Markdown。项目页聚焦方法、数据处理和 Agent 设计，不开放在线登录体验。</p>
-        <ul class="portfolio-tags"><li>AI Agent</li><li>Cherry Studio</li><li>Markdown</li></ul>
-        <div class="portfolio-card-actions"><a href="{{ "projects/market-breadth-agent/" | relURL }}">查看技术说明 →</a></div>
+        <ul class="portfolio-tags">
+          <li>AI Agent</li>
+          <li>Cherry Studio</li>
+          <li>Markdown</li>
+        </ul>
+        <div class="portfolio-card-actions"><a href="{{ "projects/market-breadth-agent/" | relURL }}">查看技术说明 →</a>
+        </div>
       </article>
     </div>
   </section>
@@ -102,20 +127,20 @@
     <p class="portfolio-section-intro">从本地 Agent 每日生成的 Markdown 中手动挑选、校对和发布。这里是研究过程的留痕，不构成投资建议。</p>
     {{- $notes := where site.RegularPages "Section" "market-breadth" -}}
     {{- if gt (len $notes) 0 }}
-      <div class="portfolio-note-list">
+    <div class="portfolio-note-list">
       {{- range first 3 (sort $notes "Date" "desc") }}
-        <a class="portfolio-note" href="{{ .RelPermalink }}"><time>{{ .Date | time.Format "2006-01-02" }}</time><span>{{ .Title }}</span><span aria-hidden="true">→</span></a>
+      <a class="portfolio-note" href="{{ .RelPermalink }}"><time>{{ .Date | time.Format "2006-01-02" }}</time><span>{{ .Title }}</span><span aria-hidden="true">→</span></a>
       {{- end }}
-      </div>
+    </div>
     {{- else }}
-      <p class="portfolio-empty-state">第一篇市场宽度分析将在人工校对后发布。</p>
+    <p class="portfolio-empty-state">第一篇市场宽度分析将在人工校对后发布。</p>
     {{- end }}
   </section>
 
   <section class="portfolio-section portfolio-roadmap" aria-labelledby="roadmap-title">
-    <p class="portfolio-kicker">WHAT'S NEXT</p>
-    <h2 id="roadmap-title">有些想法，正在长成产品</h2>
-    <p>Dify 对话流、产品文案生成等 AI 应用仍在迭代。先把问题想清楚，再把它们做成值得使用的东西。</p>
-    <p class="portfolio-roadmap-link"><a href="{{ "agents/" | relURL }}">查看 AI 应用 →</a></p>
+    <p class="portfolio-kicker">AI APPLICATIONS</p>
+    <h2 id="roadmap-title">从想法到可运行的 AI 应用</h2>
+    <p>基于 Dify 编排的 5 个工作流已上线，涵盖商品评论分析、客服对话分析、投诉分类、旅游投诉聚合与谷歌搜索增强。每个项目都配有完整的技术说明与可体验入口。</p>
+    <p class="portfolio-roadmap-link"><a href="{{ "agents/" | relURL }}">查看全部 AI 应用 →</a></p>
   </section>
 </div>
