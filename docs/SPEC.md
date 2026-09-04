@@ -92,6 +92,7 @@
 | `/projects/` | `content/projects/_index.md` | 项目列表。 |
 | `/projects/wencai-monitor/` | `content/projects/wencai-monitor.md` | 同花顺问财辅助工具。 |
 | `/projects/market-breadth-agent/` | `content/projects/market-breadth-agent.md` | 市场宽度分析 Agent 说明。 |
+| `/projects/extreme-risk-averse-stock-agent/` | `content/projects/extreme-risk-averse-stock-agent.md` | 极端风险厌恶型选股策略 Agent。 |
 | `/market-breadth/` | `content/market-breadth/_index.md` | 市场宽度分析文章列表。 |
 | `/market-breadth/<slug>/` | 后续 Markdown 文件 | 人工审核后的每日分析文章。 |
 
@@ -101,7 +102,7 @@
 
 1. **Hero**：岗位方向、个人价值主张、项目/GitHub CTA、能力统计。
 2. **GitHub Activity**：贡献总数、更新时间、日历网格、GitHub Profile 链接。
-3. **Selected Work**：同花顺问财辅助工具和市场宽度分析 Agent。
+3. **Selected Work**：同花顺问财辅助工具和极端风险厌恶型选股策略 Agent。
 4. **Market Notes**：最近最多 3 篇已发布市场宽度文章；无文章时展示空状态。
 5. **What’s Next**：说明 Dify 等探索仍需完成和验证。
 
