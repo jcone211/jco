@@ -12,7 +12,7 @@ html { font-size: 12px; }
 @media (prefers-color-scheme: dark) { .portfolio-arrival p { color: #e2e8f0; } }
 .portfolio-greeting { max-width: 440px; margin: .65rem 0 0; color: #52636b; font-size: .95rem; line-height: 1.65; }
 .portfolio-eyebrow, .portfolio-kicker, .portfolio-project-number { margin: 0; color: var(--portfolio-accent); font-size: .76rem; font-weight: 800; letter-spacing: .14em; }
-.portfolio-hero h1 { position: relative; z-index: 1; max-width: 780px; margin: .7rem 0 1.25rem; color: var(--portfolio-ink); font-size: clamp(2.25rem, 6vw, 4.65rem); font-weight: 800; letter-spacing: -.06em; line-height: 1.06; }
+.portfolio-hero h1 { position: relative; z-index: 1; max-width: 780px; margin: .7rem 0 1.25rem; color: var(--portfolio-ink); font-size: clamp(1.5rem, 4vw, 2.5rem); font-weight: 800; letter-spacing: -.06em; line-height: 1.15; }
 .portfolio-lead { position: relative; z-index: 1; max-width: 650px; margin: 0; color: #334155; font-size: clamp(1.05rem, 2.2vw, 1.25rem); line-height: 1.85; }
 .portfolio-actions { position: relative; z-index: 1; display: flex; flex-wrap: wrap; gap: .75rem; margin-top: 2rem; }
 .portfolio-button { display: inline-flex; align-items: center; justify-content: center; padding: .82rem 1.1rem; border-radius: .7rem; font-weight: 700; text-decoration: none; transition: transform .18s ease, box-shadow .18s ease; }

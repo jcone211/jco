@@ -1,0 +1,5 @@
+@layer utilities {
+  .main-menu > a.truncate {
+    font-size: 1.2rem;
+  }
+}

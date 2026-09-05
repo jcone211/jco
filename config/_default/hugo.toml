@@ -1,7 +1,7 @@
 baseURL = "https://snowynight.site/"
 locale = "zh-CN"
 defaultContentLanguage = "zh-cn"
-title = "shadow 的编程网"
+title = "snowynight"
 theme = "blowfish"
 timeZone = "Asia/Shanghai"
 enableRobotsTXT = true
